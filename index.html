@@ -808,7 +808,7 @@
     border-radius: 0 0 12px 12px;
   }
 
-  /* ── URGENCY COUNTER ── */
+  /* ── URGENCY COUNTDOWN ── */
   .urgency-bar {
     max-width: 520px;
     margin: 0 auto 40px;
@@ -819,26 +819,88 @@
     font-size: 14px;
     font-weight: 600;
     color: var(--dark-taupe);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-  .urgency-text span {
-    color: var(--rose-gold);
-    font-size: 18px;
+  .countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .countdown__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .countdown__number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
     font-weight: 700;
+    color: var(--rose-gold);
+    line-height: 1;
+    min-width: 64px;
   }
-  .urgency-track {
-    width: 100%;
-    height: 10px;
-    background: var(--pale-gold);
-    border-radius: 10px;
-    overflow: hidden;
+  .countdown__label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--taupe);
+    margin-top: 4px;
   }
-  .urgency-fill {
-    height: 100%;
-    background: linear-gradient(to right, var(--gold), var(--rose-gold));
-    border-radius: 10px;
-    transition: width 1s ease;
+  .countdown__sep {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--rose-gold);
+    margin-bottom: 16px;
   }
+
+  /* ── PAYMENT BADGE ── */
+  .payment-badge {
+    margin-top: 20px;
+    padding: 16px 20px;
+    border: 1px solid var(--pale-gold);
+    border-radius: 12px;
+    background: var(--warm-white);
+  }
+  .payment-badge__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 12px;
+  }
+  .payment-badge__header svg {
+    color: var(--taupe);
+  }
+  .payment-badge__logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .pay-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: #f0f0f0;
+    color: #333;
+  }
+  .pay-visa { color: #1a1f71; background: #e8eaf6; }
+  .pay-mc { color: #eb001b; background: #fce4ec; }
+  .pay-amex { color: #006fcf; background: #e3f2fd; }
+  .pay-mp { color: #009ee3; background: #e0f7fa; }
 
   /* ── VALUE STACK ── */
   .value-stack {
@@ -1551,15 +1613,23 @@
     <p class="precio__sub reveal reveal-delay-2">Acceso permanente — pagás una vez, tenés la guía para siempre.</p>
 
     <div class="urgency-bar reveal reveal-delay-2">
-      <p class="urgency-text">Quedan <span id="unitsLeft">47</span> de 100 al precio de lanzamiento</p>
-      <div class="urgency-track">
-        <div class="urgency-fill" id="urgencyFill" style="width: 53%"></div>
+      <p class="urgency-text">Esta oferta expira en</p>
+      <div class="countdown" id="countdown">
+        <div class="countdown__block">
+          <span class="countdown__number" id="countMin">09</span>
+          <span class="countdown__label">min</span>
+        </div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__block">
+          <span class="countdown__number" id="countSec">00</span>
+          <span class="countdown__label">seg</span>
+        </div>
       </div>
     </div>
 
     <div class="value-stack reveal reveal-delay-2">
       <div class="value-stack__header">
-        <span>🔥 Precio de lanzamiento — Primeras 100 compras</span>
+        <span>👁 <strong id="viewersCount">7</strong> personas están viendo esto ahora</span>
       </div>
       <div class="value-stack__body">
         <div class="value-item">
@@ -1588,6 +1658,18 @@
         <div class="value-stack__you-pay"><span class="currency">$</span>25.000</div>
         <div class="value-stack__savings">Ahorrás $40.000 — 62% de descuento</div>
         <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="value-stack__cta" aria-label="Comprar la guía">Quiero la guía ✦</a>
+        <div class="payment-badge">
+          <div class="payment-badge__header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Pago seguro garantizado</span>
+          </div>
+          <div class="payment-badge__logos">
+            <span class="pay-logo pay-visa">VISA</span>
+            <span class="pay-logo pay-mc">Mastercard</span>
+            <span class="pay-logo pay-amex">AMEX</span>
+            <span class="pay-logo pay-mp">Mercado Pago</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1733,6 +1815,41 @@
       }
     });
   });
+
+  // Countdown timer - 9 minutos desde que carga la página
+  (function() {
+    const totalSeconds = 9 * 60;
+    const storageKey = 'countdown_end';
+    let end = localStorage.getItem(storageKey);
+
+    if (!end || Number(end) < Date.now()) {
+      end = Date.now() + totalSeconds * 1000;
+      localStorage.setItem(storageKey, end);
+    } else {
+      end = Number(end);
+    }
+
+    const minEl = document.getElementById('countMin');
+    const secEl = document.getElementById('countSec');
+
+    function tick() {
+      const remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+      const m = Math.floor(remaining / 60);
+      const s = remaining % 60;
+      minEl.textContent = String(m).padStart(2, '0');
+      secEl.textContent = String(s).padStart(2, '0');
+      if (remaining > 0) requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  // Viewers count - varía entre 5 y 9
+  (function() {
+    const el = document.getElementById('viewersCount');
+    setInterval(() => {
+      el.textContent = Math.floor(Math.random() * 5) + 5;
+    }, 4000);
+  })();
 </script>
 </body>
 </html>
