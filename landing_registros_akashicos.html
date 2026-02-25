@@ -1193,69 +1193,22 @@
   ══════════════════════════════════════════ */
   .sticky-nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
     z-index: 100;
-    background: rgba(253,250,245,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--pale-gold);
-    padding: 0 24px;
-    transform: translateY(-100%);
+    background: none;
+    border: none;
+    padding: 0;
     transition: transform 0.4s ease;
+    pointer-events: none;
   }
-  .sticky-nav.visible { transform: translateY(0); }
+  .sticky-nav .cta-btn {
+    pointer-events: auto;
+  }
+  .sticky-nav.visible { transform: translateX(-50%) translateY(0); }
 
-  .sticky-nav__inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-
-  .sticky-nav__brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: var(--dark-taupe);
-    font-weight: 400;
-    text-decoration: none;
-  }
-
-  .sticky-nav__links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-  .sticky-nav__links a {
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--taupe);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
-  }
-  .sticky-nav__links a:hover { color: var(--dark-taupe); }
-
-  .sticky-nav__cta {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--dark-taupe);
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 40px;
-    transition: all 0.3s ease;
-  }
-  .sticky-nav__cta:hover {
-    background: var(--soft-gold);
-    transform: translateY(-2px);
-  }
+  .sticky-nav .cta-btn::after { display: none; }
 
   /* ══════════════════════════════════════════
      FAQ ACCORDION
@@ -1381,7 +1334,6 @@
   }
 
   @media (max-width: 768px) {
-    .sticky-nav__links { display: none; }
     .historia__inner { grid-template-columns: 1fr; }
     .historia__avatar { flex-direction: row; align-items: center; }
     .avatar-circle { width: 100px; height: 100px; font-size: 48px; }
@@ -1401,7 +1353,7 @@
     .precio-card.featured { transform: scale(1); }
     .precio-card.featured:hover { transform: translateY(-6px); }
     .hero-wrapper::before, .hero-wrapper::after { display: none; }
-    .hero { padding: 100px 20px 40px; }
+    .hero { padding: 56px 20px 40px; }
     .hero-mockup img { width: min(280px, 75vw); }
     .hero-mockup { margin-bottom: 28px; }
     .pillars { grid-template-columns: 1fr; }
@@ -1414,19 +1366,6 @@
 </head>
 <body>
 
-<!-- ══ STICKY NAV ══════════════════════════════════════ -->
-<nav class="sticky-nav" id="stickyNav" aria-label="Navegación principal">
-  <div class="sticky-nav__inner">
-    <a href="#" class="sticky-nav__brand">Tatiana Orquera</a>
-    <ul class="sticky-nav__links">
-      <li><a href="#historia">Sobre mí</a></li>
-      <li><a href="#contenido">Contenido</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#precio">Precio</a></li>
-    </ul>
-    <a href="#precio" class="sticky-nav__cta" aria-label="Ir a la sección de compra">Quiero la guía</a>
-  </div>
-</nav>
 
 <!-- Background blobs -->
 <div class="blob-bg" aria-hidden="true">
@@ -1517,7 +1456,7 @@
     </div>
 
     <div class="cta-mid reveal">
-      <a href="#precio" class="cta-btn" aria-label="Ir a la sección de precios">Quiero la guía ✦</a>
+      <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="cta-btn" aria-label="Comprar la guía">Quiero la guía ✦</a>
     </div>
   </div>
 </section>
@@ -1648,7 +1587,7 @@
         <div class="value-stack__you-pay-label">Hoy lo llevás por</div>
         <div class="value-stack__you-pay"><span class="currency">$</span>25.000</div>
         <div class="value-stack__savings">Ahorrás $40.000 — 62% de descuento</div>
-        <a href="#" class="value-stack__cta" aria-label="Comprar la guía">Quiero la guía ✦</a>
+        <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="value-stack__cta" aria-label="Comprar la guía">Quiero la guía ✦</a>
       </div>
     </div>
 
@@ -1742,7 +1681,7 @@
   <p class="cta-final__sub reveal reveal-delay-2">
     Los Registros Akáshicos son la puerta.<br>Vos tenés la llave.
   </p>
-  <a href="#" class="cta-btn reveal reveal-delay-3" aria-label="Comprar la guía de Registros Akáshicos">Quiero la guía ✦</a>
+  <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="cta-btn reveal reveal-delay-3" aria-label="Comprar la guía de Registros Akáshicos">Quiero la guía ✦</a>
   <p class="cta-final__author reveal reveal-delay-4">
     Con amor — Tatiana Orquera
   </p>
@@ -1766,21 +1705,18 @@
     el.classList.add('visible');
   });
 
-  // Sticky nav: mostrar al salir del hero
+  // Sticky nav: mostrar cuando se baja del hero
   const stickyNav = document.getElementById('stickyNav');
-  const heroSection = document.querySelector('.hero');
+  const heroWrapper = document.querySelector('.hero-wrapper');
 
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        stickyNav.classList.add('visible');
-      } else {
-        stickyNav.classList.remove('visible');
-      }
-    });
-  }, { threshold: 0 });
-
-  navObserver.observe(heroSection);
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroWrapper.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyNav.classList.add('visible');
+    } else {
+      stickyNav.classList.remove('visible');
+    }
+  });
 
   // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
