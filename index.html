@@ -751,6 +751,86 @@
   /* ══════════════════════════════════════════
      PRECIO
   ══════════════════════════════════════════ */
+  /* QUE PODRÁS HACER */
+  .que-podras {
+    background: var(--dark-taupe);
+    padding: 30px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .que-podras__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fondo-hero.jpg') center center / cover no-repeat;
+    filter: blur(4px);
+    opacity: 0.6;
+  }
+  .que-podras__title {
+    text-align: center;
+    font-size: clamp(28px, 5vw, 44px);
+    color: var(--cream);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .que-podras__sub {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--pale-gold);
+    margin-bottom: 40px;
+  }
+  .que-podras__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+  }
+  .que-podras__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 16px 16px 0;
+    padding: 20px 20px 20px 24px;
+  }
+  .que-podras__emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .que-podras__item:hover {
+    background: rgba(255,255,255,0.12);
+    border-left-color: var(--soft-gold);
+    transform: translateX(4px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.2);
+  }
+  .que-podras__text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+  .que-podras__text strong {
+    display: block;
+    color: var(--gold);
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  @media (max-width: 600px) {
+    .que-podras__grid { grid-template-columns: 1fr; }
+  }
+
   .precio {
     background: var(--soft-nude);
     text-align: center;
@@ -1500,6 +1580,29 @@
 
 
 
+<!-- ══ QUÉ PODRÁS HACER ═══════════════════════════ -->
+<section class="que-podras">
+  <div class="que-podras__bg" aria-hidden="true"></div>
+  <h2 class="que-podras__title reveal">Despertarás algo que siempre estuvo ahí. <strong style="color:var(--gold);">Ahora podrás:</strong></h2>
+  <div class="que-podras__grid">
+    <div class="que-podras__item reveal reveal-delay-1">
+<span class="que-podras__text"><strong>Abrir tus propios Registros Akáshicos</strong>Aprendé el proceso completo de apertura y cierre, paso a paso, para conectar con tu información de alma de forma segura.</span>
+    </div>
+    <div class="que-podras__item reveal reveal-delay-1">
+<span class="que-podras__text"><strong>Conectar con el alma de tu mascota</strong>Accedé a los Registros de tu animal para entender su propósito, sus emociones y los mensajes que intenta darte.</span>
+    </div>
+    <div class="que-podras__item reveal reveal-delay-2">
+<span class="que-podras__text"><strong>Hacer sesiones a otras personas</strong>Con las oraciones y técnicas incluidas, vas a poder realizar sesiones para otras personas y mascotas.</span>
+    </div>
+    <div class="que-podras__item reveal reveal-delay-3">
+<span class="que-podras__text"><strong>Limpiar bloqueos energéticos</strong>Identificá bloqueos en tus chakras, hacé escaneos de energía y liberá patrones kármicos que ya no te sirven.</span>
+    </div>
+    <div class="que-podras__item reveal reveal-delay-3">
+<span class="que-podras__text"><strong>Meditar con las guías de audio incluidas</strong>Usá las meditaciones guiadas y la playlist para anclarte, abrir tu canal y crear el espacio sagrado antes de cada sesión.</span>
+    </div>
+  </div>
+</section>
+
 <!-- ══ PRECIO ══════════════════════════════════════ -->
 <section class="precio" id="precio">
   <div class="section">
@@ -1543,14 +1646,14 @@
         </div>
         <div class="value-total">
           <div class="value-total__label">Valor real</div>
-          <div class="value-total__price">$85.000</div>
+          <div class="value-total__price">$84.890</div>
         </div>
       </div>
       <div class="value-stack__footer">
         <div class="value-stack__you-pay-label">Hoy lo llevás por</div>
-        <div class="value-stack__you-pay"><span class="currency">$</span>17.890</div>
-        <div class="value-stack__savings">Ahorrás $67.110</div>
-        <div style="display:inline-block;background:var(--gold);color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;padding:6px 20px;border-radius:50px;margin:10px 0 24px;">3 CUOTAS DE $5.964</div>
+        <div class="value-stack__you-pay"><span class="currency">$</span>24.890</div>
+        <div class="value-stack__savings">Ahorrás $60.000</div>
+        <div style="display:inline-block;background:var(--gold);color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;padding:6px 20px;border-radius:50px;margin:10px 0 24px;">3 CUOTAS DE $8.297</div>
         <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="value-stack__cta" aria-label="Comprar la guía">✦ Acceder ahora ✦</a>
         <p style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:600;color:var(--dark-taupe);margin:12px 0 4px;">✓ Acceso permanente</p>
         <img src="safepayment.png" alt="Pago seguro garantizado - Visa, Mastercard, American Express, Mercado Pago" class="payment-badge-img">
