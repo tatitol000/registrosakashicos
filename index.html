@@ -201,21 +201,19 @@
     z-index: 1;
     margin-bottom: 16px;
     opacity: 0;
-    animation: fadeUp 1s ease 0.5s forwards, bookFloat 4s ease-in-out 1.5s infinite;
+    animation: fadeUp 1s ease 0.5s forwards, bookFloat 6s ease-in-out 1.5s infinite;
   }
 
   .hero-mockup img {
-    width: min(800px, 80vw);
+    width: min(600px, 75vw);
     height: auto;
     filter: drop-shadow(0 24px 48px rgba(0,0,0,0.2));
     animation: bookGlow 3s ease-in-out 1.5s infinite;
   }
 
   @keyframes bookFloat {
-    0%, 100% { transform: translateY(0) rotateY(0deg); }
-    25% { transform: translateY(-8px) rotateY(4deg); }
-    50% { transform: translateY(-14px) rotateY(0deg); }
-    75% { transform: translateY(-8px) rotateY(-4deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 
   @keyframes bookGlow {
@@ -1402,7 +1400,7 @@
     .hero-wrapper::before { width: 400px; height: 400px; }
     .hero-wrapper::after { width: 280px; height: 280px; }
     .hero { padding: 24px 16px 20px; }
-    .hero-mockup img { width: min(280px, 75vw); }
+    .hero-mockup img { width: min(240px, 65vw); }
     .hero-mockup { margin-bottom: 10px; }
     .hero .hero-cta { margin-bottom: 12px; }
     .pillars { grid-template-columns: 1fr; }
