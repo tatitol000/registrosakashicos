@@ -130,13 +130,21 @@
      HERO
   ══════════════════════════════════════════ */
   .hero-wrapper {
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     background: var(--dark-taupe);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('fondo-hero.jpg') center center / cover no-repeat;
+    filter: blur(4px);
+    opacity: 0.5;
   }
 
   .hero {
@@ -246,7 +254,7 @@
     content: '';
     position: absolute;
     width: 600px; height: 600px;
-    border: 1px solid rgba(201,168,76,0.15);
+    border: 1.5px solid rgba(201,168,76,0.3);
     border-radius: 50%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -256,7 +264,7 @@
     content: '';
     position: absolute;
     width: 400px; height: 400px;
-    border: 0.5px solid rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
     border-radius: 50%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -264,8 +272,8 @@
   }
 
   @keyframes circlePulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
   }
 
   @keyframes rotateSlow {
@@ -581,18 +589,20 @@
   .contenido {
     background: var(--champagne);
     border-top: 3px solid var(--soft-gold);
+    padding-bottom: 0;
   }
 
   .contenido__header {
     text-align: center; margin-bottom: 28px;
   }
   .contenido__header h2 {
-    font-size: clamp(28px, 4vw, 46px);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
     color: var(--dark-taupe); margin-bottom: 10px;
   }
   .contenido__header p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 19px; font-style: italic; color: var(--taupe);
+    font-size: 22px; font-weight: 600; font-style: italic; color: var(--taupe);
   }
 
   .niveles {
@@ -755,6 +765,7 @@
   .precio {
     background: var(--soft-nude);
     text-align: center;
+    padding-top: 0;
   }
 
   .precio__title {
@@ -1413,6 +1424,7 @@
 
 <!-- ══ HERO ══════════════════════════════════════════ -->
 <div class="hero-wrapper">
+<div class="hero-bg" aria-hidden="true"></div>
 <section class="hero" aria-label="Presentación de la guía">
   <h1 class="hero-premise">Tu alma ya lo sabe.<br><em>Escuchala.</em></h1>
   <p class="hero-sub">Los Registros Akáshicos son la puerta.<br>Vos tenés la llave.</p>
@@ -1471,29 +1483,23 @@
       </div>
     </div>
 
-    <div class="cta-mid reveal">
-      <a href="https://checkout.elllamadoquesentis.shop/cart/51058356945191:1" class="cta-btn" aria-label="Comprar la guía">Quiero la guía ✦</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ BONUS ══════════════════════════════════════════ -->
-<section class="bonus">
-  <div class="section" style="text-align:center;">
-    <div class="bonus__badge">Regalo incluido</div>
-    <h2 class="bonus__title reveal">Con tu compra te llevás algo más</h2>
-    <p class="reveal reveal-delay-1" style="font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--taupe);margin-bottom:8px;">
-      Porque aprender con el cuerpo es tan importante como aprender con la mente.
-    </p>
-    <div class="bonus__card reveal reveal-delay-2">
-      <div class="bonus__emoji">🎧</div>
-      <div class="bonus__card-title">Meditaciones Guiadas</div>
-      <p class="bonus__card-text">
-        Con cada compra de la guía recibís de regalo las <strong style="color:var(--dark-taupe);">meditaciones guiadas y playlist para ambientar tus sesiones</strong> — incluidas para ambos niveles. Audio para anclarte, abrir tu canal y conectar antes de cada sesión.
-        <br><br>
-        <strong style="color:var(--dark-taupe);">Acceso permanente. Sin vencimiento.</strong>
+    <!-- BONUS integrado -->
+    <div style="text-align:center; margin-top: 40px;">
+      <div class="bonus__badge">Regalo incluido</div>
+      <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--taupe);margin-bottom:8px;">
+        Porque aprender con el cuerpo es tan importante como aprender con la mente.
       </p>
+      <div class="bonus__card reveal reveal-delay-2">
+        <div class="bonus__emoji">🎧</div>
+        <div class="bonus__card-title">Meditaciones Guiadas</div>
+        <p class="bonus__card-text">
+          Con cada compra de la guía recibís de regalo las <strong style="color:var(--dark-taupe);">meditaciones guiadas y playlist para ambientar tus sesiones</strong> — incluidas para ambos niveles. Audio para anclarte, abrir tu canal y conectar antes de cada sesión.
+          <br><br>
+          <strong style="color:var(--dark-taupe);">Acceso permanente. Sin vencimiento.</strong>
+        </p>
+      </div>
     </div>
+
   </div>
 </section>
 
