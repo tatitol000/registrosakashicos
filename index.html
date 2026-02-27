@@ -136,6 +136,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    background: var(--dark-taupe);
   }
 
   .hero {
@@ -152,11 +153,11 @@
 
   .hero-premise {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(34px, 6vw, 56px);
     font-weight: 300;
-    color: var(--dark-taupe);
-    line-height: 1.3;
-    margin-bottom: 36px;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 12px;
     z-index: 1;
     opacity: 0;
     animation: fadeUp 1s ease 0.2s forwards;
@@ -165,15 +166,15 @@
   .hero-premise em {
     font-style: italic;
     font-weight: 700;
-    color: var(--rose-gold);
+    color: var(--soft-gold);
   }
 
   .hero-sub {
     font-family: 'Nunito', sans-serif;
-    font-size: clamp(15px, 2vw, 18px);
-    color: var(--taupe);
-    line-height: 1.6;
-    margin-bottom: 32px;
+    font-size: clamp(17px, 2.5vw, 20px);
+    color: var(--pale-gold);
+    line-height: 1.5;
+    margin-bottom: 16px;
     z-index: 1;
     opacity: 0;
     animation: fadeUp 1s ease 0.35s forwards;
@@ -181,15 +182,16 @@
 
   .hero-stars {
     text-align: center;
-    font-size: 32px;
+    font-size: 24px;
     color: var(--soft-gold);
     letter-spacing: 6px;
-    margin-top: 16px;
+    margin-top: 2px;
+    z-index: 1;
   }
 
   .hero-mockup {
     z-index: 1;
-    margin-bottom: 36px;
+    margin-bottom: 16px;
     opacity: 0;
     animation: fadeUp 1s ease 0.5s forwards, bookFloat 4s ease-in-out 1.5s infinite;
   }
@@ -220,7 +222,7 @@
   }
 
   .hero .hero-cta {
-    margin-bottom: 32px;
+    margin-bottom: 8px;
     animation: fadeUp 1s ease 0.7s forwards, glowPulse 2s ease-in-out 1.7s infinite;
   }
 
@@ -244,22 +246,26 @@
     content: '';
     position: absolute;
     width: 600px; height: 600px;
-    border: 1px solid var(--soft-gold);
+    border: 1px solid rgba(201,168,76,0.15);
     border-radius: 50%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.4;
-    animation: rotateSlow 60s linear infinite;
+    animation: rotateSlow 60s linear infinite, circlePulse 8s ease-in-out infinite;
   }
   .hero-wrapper::after {
     content: '';
     position: absolute;
-    width: 440px; height: 440px;
-    border: 0.5px solid var(--pale-gold);
+    width: 400px; height: 400px;
+    border: 0.5px solid rgba(201,168,76,0.1);
     border-radius: 50%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.35;
+    animation: rotateSlow 45s linear infinite reverse, circlePulse 6s ease-in-out 2s infinite;
+  }
+
+  @keyframes circlePulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
   }
 
   @keyframes rotateSlow {
@@ -578,7 +584,7 @@
   }
 
   .contenido__header {
-    text-align: center; margin-bottom: 56px;
+    text-align: center; margin-bottom: 28px;
   }
   .contenido__header h2 {
     font-size: clamp(28px, 4vw, 46px);
@@ -1380,10 +1386,12 @@
     .precio-cards { grid-template-columns: 1fr; max-width: 340px; }
     .precio-card.featured { transform: scale(1); }
     .precio-card.featured:hover { transform: translateY(-6px); }
-    .hero-wrapper::before, .hero-wrapper::after { display: none; }
-    .hero { padding: 56px 20px 40px; }
-    .hero-mockup img { width: min(240px, 65vw); }
-    .hero-mockup { margin-bottom: 28px; }
+    .hero-wrapper::before { width: 400px; height: 400px; }
+    .hero-wrapper::after { width: 280px; height: 280px; }
+    .hero { padding: 24px 16px 20px; }
+    .hero-mockup img { width: min(280px, 75vw); }
+    .hero-mockup { margin-bottom: 10px; }
+    .hero .hero-cta { margin-bottom: 12px; }
     .pillars { grid-template-columns: 1fr; }
     .cta-mid .cta-btn { width: 100%; }
     .trust-badges { gap: 24px; }
@@ -1406,105 +1414,24 @@
 <!-- ══ HERO ══════════════════════════════════════════ -->
 <div class="hero-wrapper">
 <section class="hero" aria-label="Presentación de la guía">
-  <h1 class="hero-premise">El registro sagrado que conecta<br><em>tu alma y la de tu mascota</em></h1>
-  <p class="hero-sub">La conexión con tu mascota no es casualidad.<br>Los Registros Akáshicos tienen la respuesta.</p>
+  <h1 class="hero-premise">Tu alma ya lo sabe.<br><em>Escuchala.</em></h1>
+  <p class="hero-sub">Los Registros Akáshicos son la puerta.<br>Vos tenés la llave.</p>
   <div class="hero-mockup">
     <img src="mockup-libro.png" alt="Mockup de la guía El llamado que sentís - Registros Akáshicos por Tatiana Orquera">
-    <div class="hero-stars" aria-label="5 estrellas">★★★★★</div>
   </div>
-  <a href="#precio" class="cta-btn hero-cta" aria-label="Ir a la sección de precios">Quiero descubrirlo ✦</a>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Seguir leyendo</span>
-  </div>
+  <a href="#precio" class="cta-btn hero-cta" aria-label="Ir a la sección de precios">✦ Acceder ahora ✦</a>
+  <div class="hero-stars" aria-label="5 estrellas">★★★★★</div>
 </section>
 </div>
 
-<!-- ══ HISTORIA ══════════════════════════════════════ -->
-<section class="historia" id="historia">
-  <div class="section">
-    <div class="historia__inner">
-      
-      <div class="historia__text reveal reveal-delay-2">
-        <div class="tag">Mi historia</div>
-        <p>A los 15 años leí <em>Muchas Vidas, Muchos Maestros</em> de Brian Weiss. Ese libro fue lo que despertó mi curiosidad sobre qué hay después de la vida. Sentí algo que no podía explicar — una <em>certeza</em> de que el alma sigue, de que hay más.</p>
-        <p>Quise abrirme los Registros Akáshicos en ese entonces. Nadie me los quiso abrir por ser muy joven. Seguí mi camino y las puertas me llevaron a hacer constelaciones familiares, exploré distintas terapias alternativas.</p>
-        <p>A mis 21 años finalmente me formé como canalizadora de Registros Akáshicos. La conexión fue <em>inmediata</em>. Empecé canalizando para mascotas — especialmente para ellas — y hoy trabajo con personas y animales.</p>
-        <div class="historia__quote">
-          "Hoy te comparto lo que a mí me llevó años aprender, de una forma amorosa y clara para tu mayor evolución."
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ══ TESTIMONIOS ══════════════════════════════════ -->
-<section class="testimonios" id="testimonios">
-  <div class="section section--wide">
-    <div class="testimonios__header reveal">
-      <div class="tag">Lo que dicen</div>
-      <h2>Experiencias reales</h2>
-    </div>
 
-    <div class="testi-grid">
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">La sesión con Tatiana me dejó sin palabras. Pudo describir a mi perra — su energía, sus miedos, lo que siente hacia mí — con una precisión que me hizo llorar. Fue sanador para las dos.</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--rose-gold);color:white;">VM</div>
-          <div>
-            <div class="testi-name">Valentina M.</div>
-            <div class="testi-detail">Buenos Aires · Sesión individual</div>
-          </div>
-        </div>
-      </div>
 
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">No sabía nada de Registros Akáshicos y la guía me lo explicó de una forma tan clara y cálida que pude abrirlos yo sola en la primera semana. El bonus de meditaciones fue clave.</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--gold);color:white;">LF</div>
-          <div>
-            <div class="testi-name">Lucía F.</div>
-            <div class="testi-detail">Rosario · Compró la guía</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Me abrí los registros con la guía y pude entender por qué me bloqueaba en ciertas áreas. Fue como tener una conversación que llevaba años necesitando.</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--taupe);color:white;">SG</div>
-          <div>
-            <div class="testi-name">Sofía G.</div>
-            <div class="testi-detail">Córdoba · Compró la guía</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-4">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Compré la guía sin saber qué esperar y fue un antes y un después. Ahora abro los registros de mi gata y la conexión que siento con ella es inexplicable. Gracias, Tati.</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--deep-gold);color:white;">MC</div>
-          <div>
-            <div class="testi-name">Martina C.</div>
-            <div class="testi-detail">Mendoza · Compró la guía</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-</section>
 
 <!-- ══ CONTENIDO / NIVELES ══════════════════════════ -->
 <section class="contenido" id="contenido">
   <div class="section section--wide">
     <div class="contenido__header reveal">
-      <div class="tag">Lo que vas a aprender</div>
       <h2>La guía tiene dos niveles</h2>
       <p>Pensados para que vayas paso a paso, desde la comprensión hasta la práctica concreta.</p>
     </div>
@@ -1696,6 +1623,24 @@
       </button>
       <div class="faq-answer">
         <p>Inmediatamente después de la compra recibís un link de descarga por email. Acceso permanente — lo descargás las veces que quieras, sin vencimiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HISTORIA ══════════════════════════════════════ -->
+<section class="historia" id="historia">
+  <div class="section">
+    <div class="historia__inner">
+      
+      <div class="historia__text reveal reveal-delay-2">
+        <div class="tag">Mi historia</div>
+        <p>A los 15 años leí <em>Muchas Vidas, Muchos Maestros</em> de Brian Weiss. Ese libro fue lo que despertó mi curiosidad sobre qué hay después de la vida. Sentí algo que no podía explicar — una <em>certeza</em> de que el alma sigue, de que hay más.</p>
+        <p>Quise abrirme los Registros Akáshicos en ese entonces. Nadie me los quiso abrir por ser muy joven. Seguí mi camino y las puertas me llevaron a hacer constelaciones familiares, exploré distintas terapias alternativas.</p>
+        <p>A mis 21 años finalmente me formé como canalizadora de Registros Akáshicos. La conexión fue <em>inmediata</em>. Empecé canalizando para mascotas — especialmente para ellas — y hoy trabajo con personas y animales.</p>
+        <div class="historia__quote">
+          "Hoy te comparto lo que a mí me llevó años aprender, de una forma amorosa y clara para tu mayor evolución."
+        </div>
       </div>
     </div>
   </div>
